@@ -1,13 +1,13 @@
 #!/bin/sh
 BACKUP_DIR=$(dirname $BACKUP_FILE)
 
-if [ -f "$DB_FILE" && "$1" != "-f" ]; then
+if [[ -f "$DB_FILE" && "$1" != "-f" ]]; then
   echo "Database $DB_FILE already exits!"
   echo "Use -f option to override"
   exit 1
 fi
 
-gsutil/gsutil rsync  -r gs://$STORAGE_BUCKET/$BACKUP_DIR $BACKUP_DIR
+#gsutil/gsutil rsync  -r gs://$STORAGE_BUCKET/$BACKUP_DIR $BACKUP_DIR
 
 if [ $? -eq 0 ] 
 then 
