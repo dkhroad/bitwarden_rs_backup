@@ -6,8 +6,8 @@ if [[ -f "$DB_FILE" && "$1" != "-f" ]]; then
   echo "Use -f option to override"
   exit 1
 fi
-
-#gsutil/gsutil rsync  -r gs://$STORAGE_BUCKET/$BACKUP_DIR $BACKUP_DIR
+mkdir -p $BACKUP_DIR
+gsutil/gsutil rsync  -r gs://$STORAGE_BUCKET/$BACKUP_DIR $BACKUP_DIR
 
 if [ $? -eq 0 ] 
 then 
